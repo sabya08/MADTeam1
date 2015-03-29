@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Restaurant Express</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Restaurant Express</string>
+    <string name="text_hoes_here_lol">Welcome to Restaurant Express!</string>
+    <string name="menu_display_image">What will you like to have</string>
+    <string name="add_to_my_menu_">Add this Item to Order.</string>
+    <string name="title_activity_home">Select an Option</string>
+    <string name="action_settings">Settings</string>
+    <string name="view_update_menu">View/Update Menu</string>
+    <string name="take_order">Take Order</string>
+    <string name="title_activity_update_items">UpdateItems</string>
+    <string name="title_text">Menu Item</string>
+
+</resources>

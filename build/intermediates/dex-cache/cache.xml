@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-328040f9335b78a1c228a8da310b0dd99d3bfd06.jar" />
+    </item>
+    <item
+        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-f7ed94ea31702d3c97af0cb443c44bb6355b639d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sabya\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-dfd0b836cbd7ccdbe5fb6ad383a62dd5ddb3c7dc.jar" />
+    </item>
+    <item
+        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-2af13b383761ae53d8b6caec103811ab2cb236a3.jar" />
+    </item>
+    <item
+        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-1aa8485c2e065e0e04ed07080a519eca99e8a7c5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sabya\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpmime\4.2.3\118ae1bc7f3aeeddfe564f0edfd79c11d09d17d1\httpmime-4.2.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="118ae1bc7f3aeeddfe564f0edfd79c11d09d17d1">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\httpmime-4.2.3-9219cba8bb21b4f68c57113dcea9f9d50cc17c02.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sabya\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.2.2\b76bee23cd3f3ee9b98bc7c2c14670e821ddbbfd\httpcore-4.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b76bee23cd3f3ee9b98bc7c2c14670e821ddbbfd">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\httpcore-4.2.2-ff61a0710f8c4465d64f9992867d290901cc2d24.jar" />
+    </item>
+    <item
+        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-e8434b6ce3e652747e039a2d3b087d484eba0581.jar" />
+    </item>
+
+</items>

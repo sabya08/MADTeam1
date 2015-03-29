@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/item_image"
+            android:src="@drawable/aaloogobi"
+            android:contentDescription="@string/menu_display_image"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        </ImageView>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="top"
+            android:background="#AA000000"
+            ></View>
+        <TextView
+            android:id="@+id/item_title"
+            android:text="@string/title_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:layout_gravity="top|right"
+            android:textSize="30dp"
+            android:textColor="@android:color/white"
+            />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/item_description"
+        android:text="A blend of traditional and innovative awaits you at Gaylord Fine Indian Cuisine. Whether you dine at our Downtown Chicago or Schaumburg locations, you will experience the finest food, which perfectly combines the ancient traditions and authentic flavors of India, fused exotically with a unique ethnic edge in a casually sophisticated ambiance. All served to you with a style of service rooted in the finest eastern traditions."
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/fragment_button_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="18dp"
+            android:text="@string/add_to_my_menu_"
+            android:background="@drawable/butt_purple"
+            android:shadowRadius="10"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_weight="50"
+            android:padding="5dp"
+            />
+        <Button
+            android:id="@+id/fragment_button_delete"
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="18dp"
+            android:text="Delete"
+            android:background="@drawable/butt_other"
+            android:shadowRadius="10"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_weight="50"
+            />
+    </LinearLayout>
+
+
+</LinearLayout><!-- From: file:/E:/Android-Restaurant-Menu-experiment/app/src/main/res/layout/updateitemsfrag.xml -->

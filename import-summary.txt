@@ -1,0 +1,183 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitignore
+* .idea\
+* .idea\.name
+* .idea\compiler.xml
+* .idea\copyright\
+* .idea\copyright\profiles_settings.xml
+* .idea\encodings.xml
+* .idea\misc.xml
+* .idea\modules.xml
+* .idea\scopes\
+* .idea\scopes\scope_settings.xml
+* .idea\vcs.xml
+* .idea\workspace.xml
+* README.md
+* android-support-v4.jar
+* app\
+* app\build.gradle
+* app\src\
+* app\src\main\
+* app\src\main\AndroidManifest.xml
+* app\src\main\assets\
+* app\src\main\assets\koala.png
+* app\src\main\assets\pic01.png
+* app\src\main\assets\pic02.png
+* app\src\main\assets\pic03.png
+* app\src\main\assets\pic04.png
+* app\src\main\assets\pic05.png
+* app\src\main\assets\pic06.png
+* app\src\main\assets\pic07.png
+* app\src\main\assets\pic08.png
+* app\src\main\assets\pic09.png
+* app\src\main\assets\pic10.png
+* app\src\main\assets\pic11.png
+* app\src\main\assets\pic12.png
+* app\src\main\assets\taqueria.psd
+* app\src\main\assets\test.jpg
+* app\src\main\java\
+* app\src\main\java\com\
+* app\src\main\java\com\example\
+* app\src\main\java\com\example\testtab\
+* app\src\main\java\com\example\testtab\ActionItem.java
+* app\src\main\java\com\example\testtab\BaseItem.java
+* app\src\main\java\com\example\testtab\BaseSampleActivity.java
+* app\src\main\java\com\example\testtab\DetailFrag.java
+* app\src\main\java\com\example\testtab\MainActivity.java
+* app\src\main\java\com\example\testtab\MainFrag.java
+* app\src\main\java\com\example\testtab\PopupWindows.java
+* app\src\main\java\com\example\testtab\QuickAction.java
+* app\src\main\java\com\example\testtab\TestFragment.java
+* app\src\main\java\com\example\testtab\TestFragmentAdapter.java
+* app\src\main\java\com\example\testtab\TestTitleFragmentAdapter.java
+* app\src\main\res\
+* app\src\main\res\anim\
+* app\src\main\res\anim\disappear.xml
+* app\src\main\res\anim\fadein.xml
+* app\src\main\res\anim\fadeout.xml
+* app\src\main\res\anim\grow_from_bottom.xml
+* app\src\main\res\anim\grow_from_bottomleft_to_topright.xml
+* app\src\main\res\anim\grow_from_bottomright_to_topleft.xml
+* app\src\main\res\anim\grow_from_top.xml
+* app\src\main\res\anim\grow_from_topleft_to_bottomright.xml
+* app\src\main\res\anim\grow_from_topright_to_bottomleft.xml
+* app\src\main\res\anim\pump_bottom.xml
+* app\src\main\res\anim\pump_top.xml
+* app\src\main\res\anim\rail.xml
+* app\src\main\res\anim\shrink_from_bottom.xml
+* app\src\main\res\anim\shrink_from_bottomleft_to_topright.xml
+* app\src\main\res\anim\shrink_from_bottomright_to_topleft.xml
+* app\src\main\res\anim\shrink_from_top.xml
+* app\src\main\res\anim\shrink_from_topleft_to_bottomright.xml
+* app\src\main\res\anim\shrink_from_topright_to_bottomleft.xml
+* app\src\main\res\anim\slide_left.xml
+* app\src\main\res\anim\slide_right.xml
+* app\src\main\res\drawable-hdpi\
+* app\src\main\res\drawable-hdpi\ic_launcher.png
+* app\src\main\res\drawable-hdpi\icon.png
+* app\src\main\res\drawable-ldpi\
+* app\src\main\res\drawable-ldpi\ic_launcher.png
+* app\src\main\res\drawable-mdpi\
+* app\src\main\res\drawable-mdpi\.DS_Store
+* app\src\main\res\drawable-mdpi\ic_action_search.png
+* app\src\main\res\drawable-mdpi\ic_launcher.png
+* app\src\main\res\drawable-mdpi\icon.png
+* app\src\main\res\drawable-mdpi\koala.png
+* app\src\main\res\drawable-mdpi\red.png
+* app\src\main\res\drawable-mdpi\test.jpg
+* app\src\main\res\drawable-xhdpi\
+* app\src\main\res\drawable-xhdpi\ic_launcher.png
+* app\src\main\res\drawable-xhdpi\icon.png
+* app\src\main\res\drawable\
+* app\src\main\res\drawable\.DS_Store
+* app\src\main\res\drawable\action_item_btn.xml
+* app\src\main\res\drawable\action_item_selected.9.png
+* app\src\main\res\drawable\arrow_down.png
+* app\src\main\res\drawable\arrow_up.png
+* app\src\main\res\drawable\butt.xml
+* app\src\main\res\drawable\butt_other.xml
+* app\src\main\res\drawable\butt_purple.xml
+* app\src\main\res\drawable\grad_line.xml
+* app\src\main\res\drawable\icon.png
+* app\src\main\res\drawable\menu_cancel.png
+* app\src\main\res\drawable\menu_down_arrow.png
+* app\src\main\res\drawable\menu_eraser.png
+* app\src\main\res\drawable\menu_info.png
+* app\src\main\res\drawable\menu_ok.png
+* app\src\main\res\drawable\menu_search.png
+* app\src\main\res\drawable\menu_up_arrow.png
+* app\src\main\res\drawable\popup.9.png
+* app\src\main\res\layout\
+* app\src\main\res\layout\action_item_horizontal.xml
+* app\src\main\res\layout\action_item_vertical.xml
+* app\src\main\res\layout\detail.xml
+* app\src\main\res\layout\dialog.xml
+* app\src\main\res\layout\horiz_separator.xml
+* app\src\main\res\layout\main.xml
+* app\src\main\res\layout\main_activity.xml
+* app\src\main\res\layout\mainpagefrag.xml
+* app\src\main\res\layout\menulist.xml
+* app\src\main\res\layout\popup_horizontal.xml
+* app\src\main\res\layout\popup_vertical.xml
+* app\src\main\res\menu\
+* app\src\main\res\menu\menu.xml
+* app\src\main\res\values-v11\
+* app\src\main\res\values-v11\styles.xml
+* app\src\main\res\values-v14\
+* app\src\main\res\values-v14\styles.xml
+* app\src\main\res\values\
+* app\src\main\res\values\strings.xml
+* app\src\main\res\values\styles.xml
+* app\src\main\res\xml\
+* app\src\main\res\xml\list_a.xml
+* app\src\main\res\xml\list_b.xml
+* app\src\main\res\xml\list_c.xml
+* app\src\main\res\xml\list_d.xml
+* build.gradle
+* gradle\
+* gradle\wrapper\
+* gradle\wrapper\gradle-wrapper.jar
+* gradle\wrapper\gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* ic_launcher-web.png
+* proguard-project.txt
+* screenshots\
+* screenshots\pic1.png
+* screenshots\pic2.png
+* screenshots\pic3.png
+* screenshots\pic4.png
+* settings.gradle
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets\
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

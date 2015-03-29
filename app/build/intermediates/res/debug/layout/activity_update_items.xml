@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/updateLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/lib/com.example.testtab"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="fill_parent"
+        >
+
+        <com.viewpagerindicator.TitlePageIndicator
+            android:id="@+id/updateIndicator"
+            android:padding="15dip"
+            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:background="#18FF0000"
+            android:textColor="#AA000000"
+            app:footerColor="#FFAA2222"
+            app:footerLineHeight="4dp"
+            app:footerIndicatorHeight="22dp"
+            app:footerIndicatorStyle="underline"
+            app:selectedColor="#FF000000"
+            app:selectedBold="true"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/updatePager"
+            android:layout_width="400dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="10dp"
+        android:layout_height="fill_parent"
+        android:background="@android:color/black"
+        />
+    <FrameLayout
+        android:id="@+id/update_right_frag_container"
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        />
+
+</LinearLayout>
+<!-- From: file:/E:/Android-Restaurant-Menu-experiment/app/src/main/res/layout/activity_update_items.xml -->
