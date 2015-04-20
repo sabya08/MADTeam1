@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+
 
 /**
  * This fragment is for the RightSideBar.
@@ -30,15 +35,16 @@ import android.widget.TextView;
 public class MainFrag extends Fragment  {
 	private Button button_add;
 	private ImageView imview;
-	private TextView tv,tv_descrip;
-	//DetailFrag det_frag = new DetailFrag();
+	private TextView tv,tv_descrip,price;
+	DetailFrag det_frag = new DetailFrag();
 	
 	private callListener mCallback;
 	private Button button_view;
+    private MenuItem menuItem;
     
 	 // Container Activity must implement this interface
 	    public interface callListener {
-	        public void onButtonClick(BaseItem abc);
+	        public void onButtonClick(MenuItem menuItem);
 	    }
 	    
 	    @Override
@@ -57,9 +63,10 @@ public class MainFrag extends Fragment  {
 
         View view = inflater.inflate(R.layout.mainpagefrag, container, false);
 
-        button_add = (Button) view.findViewById(R.id.fragment_button_center);
-        button_view = (Button) view.findViewById(R.id.fragment_button_left);
-        
+        button_add = (Button) view.findViewById(R.id.fragment_button_add_order);
+        button_view = (Button) view.findViewById(R.id.fragment_button_view_order);
+        button_add.setVisibility(View.GONE);
+        button_view.setVisibility(View.GONE);
         imview = (ImageView) view.findViewById(R.id.test_image);
         tv = (TextView) view.findViewById(R.id.title);
         tv_descrip = (TextView) view.findViewById(R.id.description);
@@ -71,13 +78,13 @@ public class MainFrag extends Fragment  {
         	 */
             @Override
             public void onClick(View v) {
-                   /* FragmentManager fm = getActivity().getSupportFragmentManager();
+                    /*FragmentManager fm = getActivity().getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.right_frag_container, det_frag);
                     ft.addToBackStack(null);
-                    ft.commit(); */
-            	if(item!=null)
-            		mCallback.onButtonClick(item);
+                    ft.commit();*/
+            	if(menuItem!=null)
+            		mCallback.onButtonClick(menuItem);
                     
             }
             
@@ -91,11 +98,13 @@ public class MainFrag extends Fragment  {
             }
             
         });
+
+
         
         return view;
     }
     //public XmlResourceParser xItem;
-    public BaseItem item=null;
+   // public BaseItem item=null;
     public void update(XmlResourceParser xmlItem)
     {
 
@@ -105,7 +114,7 @@ public class MainFrag extends Fragment  {
     	String t = xmlItem.getAttributeValue(null,"title");
     	String d = xmlItem.getAttributeValue(null,"description");
     	String p = xmlItem.getAttributeValue(null,"price");
-    	item = new BaseItem(s,t,d,p);
+    	//item = new BaseItem(s,t,d,p);
     	loadDataFromAsset(s);
     	
     	tv.setText(t);
@@ -113,12 +122,40 @@ public class MainFrag extends Fragment  {
     	//button.setText(s);
     	imview.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.fadein));
     	tv.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.slide_left));
+        button_add.setVisibility(View.VISIBLE);
+        button_view.setVisibility(View.VISIBLE);
     }
 
-    public void showItem(MenuItem item)
+    public void showItem(MenuItem item,ImageLoader imageLoader)
     {
+        menuItem = item;
         tv.setText(item.getItem_Name());
         tv_descrip.setText(item.getItem_Description());
+        button_add.setVisibility(View.VISIBLE);
+        button_view.setVisibility(View.VISIBLE);
+        tv.setEnabled(false);
+        tv_descrip.setEnabled(false);
+
+
+// If you are using normal ImageView
+        imageLoader.get(Config.base_url_image + menuItem.getItem_ID() + ".jpg", new ImageLoader.ImageListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error Image", "Image Load Error: " + error.getMessage());
+                imview.setImageDrawable(getResources().getDrawable(R.drawable.noimage));
+                imview.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.fadein));
+            }
+
+            @Override
+            public void onResponse(ImageLoader.ImageContainer response, boolean arg1) {
+                if (response.getBitmap() != null) {
+                    // load image into imageview
+                    imview.setImageBitmap(response.getBitmap());
+                    imview.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.fadein));
+                }
+            }
+        });
         tv.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.slide_left));
 
     }

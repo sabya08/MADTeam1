@@ -2,60 +2,74 @@
 <items version="2" >
 
     <item
-        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-328040f9335b78a1c228a8da310b0dd99d3bfd06.jar" />
-    </item>
-    <item
-        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\classes.jar"
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-f7ed94ea31702d3c97af0cb443c44bb6355b639d.jar" />
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-8f090266b5cc3dad6a9fa3ec8ddf004697865dd0.jar" />
     </item>
     <item
         jar="C:\Users\Sabya\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-dfd0b836cbd7ccdbe5fb6ad383a62dd5ddb3c7dc.jar" />
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-dfd0b836cbd7ccdbe5fb6ad383a62dd5ddb3c7dc.jar" />
     </item>
     <item
-        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-2af13b383761ae53d8b6caec103811ab2cb236a3.jar" />
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-2c19718b1684b56130cd684546aa2873727bd024.jar" />
     </item>
     <item
-        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-96f131756d34214bbdbd586616a0155c6a6716df.jar" />
+    </item>
+    <item
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-1aa8485c2e065e0e04ed07080a519eca99e8a7c5.jar" />
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-e8808367c2926c32873bdbfd5eec659961ca9d49.jar" />
     </item>
     <item
         jar="C:\Users\Sabya\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpmime\4.2.3\118ae1bc7f3aeeddfe564f0edfd79c11d09d17d1\httpmime-4.2.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="118ae1bc7f3aeeddfe564f0edfd79c11d09d17d1">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\httpmime-4.2.3-9219cba8bb21b4f68c57113dcea9f9d50cc17c02.jar" />
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\httpmime-4.2.3-9219cba8bb21b4f68c57113dcea9f9d50cc17c02.jar" />
     </item>
     <item
         jar="C:\Users\Sabya\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.2.2\b76bee23cd3f3ee9b98bc7c2c14670e821ddbbfd\httpcore-4.2.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b76bee23cd3f3ee9b98bc7c2c14670e821ddbbfd">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\httpcore-4.2.2-ff61a0710f8c4465d64f9992867d290901cc2d24.jar" />
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\httpcore-4.2.2-ff61a0710f8c4465d64f9992867d290901cc2d24.jar" />
     </item>
     <item
-        jar="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.shamanland\fab\0.0.8\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="E:\Android-Restaurant-Menu-experiment\app\build\intermediates\pre-dexed\debug\classes-e8434b6ce3e652747e039a2d3b087d484eba0581.jar" />
+        sha1="e58f2fb4991259b0d4e78c3b3dd686ec58736a29">
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-885b50e840656edd7b0f9cf959dd21471656773b.jar" />
+    </item>
+    <item
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-7e889ea4e9697bafcfdcec71b293884aa9355353.jar" />
+    </item>
+    <item
+        jar="E:\RestaurantExpressTeam1\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-869bb79343885e9193b52c4c7801bee82c0d4dcd.jar" />
     </item>
 
 </items>

@@ -45,7 +45,7 @@ public class HomeActivity extends BaseSampleActivity {
 
     public void takeOrder(View v)
     {
-        Intent intent = new Intent(HomeActivity.this,MainActivity.class);
+        Intent intent = new Intent(HomeActivity.this,TableActivity.class);
         startActivity(intent);
     }
 

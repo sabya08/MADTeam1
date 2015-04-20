@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
+
+        <Button
+            android:id="@+id/tb1"
+            android:text="TABLE 1"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <Button
+            android:id="@+id/tb2"
+            android:text="TABLE 2"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb3"
+            android:text="TABLE 3"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
+
+        <Button
+            android:id="@+id/tb4"
+            android:text="TABLE 4"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb5"
+            android:text="TABLE 5"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb6"
+            android:text="TABLE 6"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
+
+        <Button
+            android:id="@+id/tb7"
+            android:text="TABLE 7"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb8"
+            android:text="TABLE 8"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb9"
+            android:text="TABLE 9"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
+
+        <Button
+            android:id="@+id/tb10"
+            android:text="TABLE 10"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb11"
+            android:text="TABLE 11"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/tb12"
+            android:text="TABLE 12"
+            android:textSize="20sp"
+            android:onClick="tableClicked"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/E:/RestaurantExpressTeam1/app/src/main/res/layout/activity_table.xml -->

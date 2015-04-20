@@ -1,5 +1,8 @@
 package com.team1.RestaurantExpress;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Sabya on 3/27/2015.
  */
@@ -11,7 +14,8 @@ public class MenuItem {
     public Double Item_Price;
     public boolean Item_Active;
     public String Item_Category;
-
+    public String Item_Image_Path;
+    public int Item_Qty;
 
     public int getItem_ID() {
         return Item_ID;
@@ -59,5 +63,35 @@ public class MenuItem {
 
     public void setItem_Category(String item_Category) {
         Item_Category = item_Category;
+    }
+
+    public String getItem_Image_Path()
+    {
+        return Item_Image_Path;
+    }
+
+    public void setItem_Image_Path(String image_path)
+    {
+        this.Item_Image_Path = image_path;
+    }
+
+    public void setItem_Qty(int qty) { this.Item_Qty = qty; }
+
+    public int getItem_Qty() { return this.Item_Qty; }
+
+    public JSONObject getJSONObject() {
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("ItemID", Item_ID);
+            obj.put("ItemName", Item_Name);
+            obj.put("ItemCategory", Item_Category);
+            obj.put("ItemActive",Item_Active);
+            obj.put("Quantity",Item_Qty);
+            obj.put("ItemPrice",Item_Price);
+            obj.put("ItemDescription",Item_Description);
+        } catch (JSONException e) {
+            //trace("DefaultListItem.toString JSONException: "+e.getMessage());
+        }
+        return obj;
     }
 }

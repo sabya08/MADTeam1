@@ -36,15 +36,16 @@ import android.widget.Toast;
  *
  */
 public class DetailFrag extends Fragment {
-	public Button button_back,button_menu;
+	public Button button_back,button_menu,button_confirm,button_cancel;
 	public ListView lv;
-	ArrayList<BaseItem> myitemlist;
+	ArrayList<MenuItem> myitemlist;
 	public int n=0;
 	public String strng="default";
 	private SimpleAdapter arrayAdapter;
 	List<Map<String, String>> items;
 	delListener mCallback;
 	numListener numCallback;
+    confirmOrderListener onConfirmCallback;
 	private static final int ID_UP     = 1;
 	private static final int ID_DOWN   = 2;
 	
@@ -58,6 +59,10 @@ public class DetailFrag extends Fragment {
 	    public interface numListener {
 	        public void onNumChange(int i,int p);
 	    }
+
+        public interface confirmOrderListener{
+            public void onConfirmClick();
+        }
 	    
 	    @Override
 	    public void onAttach(Activity activity) {
@@ -65,6 +70,7 @@ public class DetailFrag extends Fragment {
 	        try {
 	            mCallback = (delListener) activity;
 	            numCallback = (numListener) activity;
+                onConfirmCallback = (confirmOrderListener)activity;
 	        } catch (ClassCastException e) {
 	            throw new ClassCastException(activity.toString()
 	                    + " must implement Listeners!!");
@@ -76,8 +82,7 @@ public class DetailFrag extends Fragment {
 	{
 		
 	}
-	
-	DetailFrag(ArrayList<BaseItem> s)
+    DetailFrag(ArrayList<MenuItem> s)
 	{
 		myitemlist=s;
 	}
@@ -89,6 +94,8 @@ public class DetailFrag extends Fragment {
         
         
         button_menu =(Button) view.findViewById(R.id.button2);
+        button_confirm = (Button) view.findViewById(R.id.button3);
+
         ActionItem nextItem 	= new ActionItem(ID_DOWN, "Next", getResources().getDrawable(R.drawable.menu_down_arrow));
 		ActionItem prevItem 	= new ActionItem(ID_UP, "Prev", getResources().getDrawable(R.drawable.menu_up_arrow));
         
@@ -125,9 +132,9 @@ public class DetailFrag extends Fragment {
         String[] arr3 = new String[myitemlist.size()];
         for(int i=0;i<myitemlist.size();i++)
         {	
-        	arr1[i]=myitemlist.get(i).title;
-        	arr2[i]=myitemlist.get(i).price;
-        	arr3[i]="Qty: "+Integer.toString(myitemlist.get(i).num);
+        	arr1[i]=myitemlist.get(i).getItem_Name();
+        	arr2[i]=myitemlist.get(i).getItem_Price().toString();
+        	arr3[i]="Qty: "+Integer.toString(myitemlist.get(i).getItem_Qty());
         }
         
         String[] from = new String[] { "str" , "price","numbs"};
@@ -223,7 +230,12 @@ public class DetailFrag extends Fragment {
         });
         setbill(view);
         
-        
+        button_confirm.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onConfirmCallback.onConfirmClick();
+            }
+        });
         
         return view;
 	}
@@ -232,15 +244,16 @@ public class DetailFrag extends Fragment {
 	{
 		TextView child = (TextView)view.findViewById(R.id.bill_amount);
 //        /Log.d();
-        int sum = 0;
+        double sum = 0;
         for(int i=0;i<myitemlist.size();i++)
         {
-        	int p = Integer.parseInt(myitemlist.get(i).price);
-        	sum+= myitemlist.get(i).num*p;
+        	double p = myitemlist.get(i).getItem_Price();
+        	sum+= myitemlist.get(i).getItem_Qty()*p;
         }
         if(child!=null){
-        	child.setText(Integer.toString(sum));
-        	Log.d("XXX","fdfdffdfdfdf");
+
+        	child.setText(Double.toString(Math.round(sum)));
+        	Log.d("SET Bill","Bill is set");
         }
         	
 	}

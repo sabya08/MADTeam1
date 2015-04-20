@@ -38,7 +38,7 @@
     </FrameLayout>
     <TextView
         android:id="@+id/description"
-        android:text=" Welcome to Demo Restauarnt, From a luscious slice of the Cheesecake Factory’s Godiva chocolate cheesecake to a meal of Rainbow and Negihama rolls from Hapa Sushi or our very own Barbeque Chicken Pizza for a crowd, we have it all.\nPlease Take your time to peruse this Digital Menu. Choose an Iten from the left sidebar and add to to your order by pressing the blue button."
+        android:text=" Welcome to Gaylord Fine Indian Cuisine.\nA blend of traditional and innovative awaits you at Gaylord Fine Indian Cuisine. Whether you dine at our Downtown Chicago or Schaumburg locations, you will experience the finest food, which perfectly combines the ancient traditions and authentic flavors of India, fused exotically with a unique ethnic edge in a casually sophisticated ambiance. "
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"

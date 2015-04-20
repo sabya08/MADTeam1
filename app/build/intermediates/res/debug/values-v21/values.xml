@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/E:/Android-Restaurant-Menu-experiment/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
+    <!-- From: file:/E:/RestaurantExpressTeam1/app/build/intermediates/exploded-aar/com.shamanland/fab/0.0.8/res/values-v21/values.xml -->
+    <eat-comment/>
+    <dimen name="floating_action_button_margin_mini">20dp</dimen>
+    <dimen name="floating_action_button_margin_mini_minus">-20dp</dimen>
+    <dimen name="floating_action_button_margin_normal">28dp</dimen>
+    <dimen name="floating_action_button_margin_normal_minus">-28dp</dimen>
+    <!-- From: file:/E:/RestaurantExpressTeam1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>

@@ -15,6 +15,10 @@ public class BaseItem {
 	public String description;
 	public String price;
 	public int 	num;
+    public BaseItem()
+    {
+
+    }
 	BaseItem(String s, String t, String d,String p)
 	{
 		image = s;
