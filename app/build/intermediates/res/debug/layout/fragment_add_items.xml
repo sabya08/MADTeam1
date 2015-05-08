@@ -46,15 +46,7 @@
                 android:textSize="30dp"
                 android:textColor="@android:color/white"
                 />
-            <Button
-                android:id="@+id/add_btncamera"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:background="@drawable/camera"
-                android:padding="10dp"
-                android:layout_gravity="top|right"
 
-                />
 
         </LinearLayout>
     </FrameLayout>
@@ -77,6 +69,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="20dp"
+        android:inputType="numberDecimal"
         android:layout_gravity="center"
         />
     <Spinner

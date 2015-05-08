@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/updateLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/lib/com.example.testtab"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="fill_parent"
+        >
+
+        <com.viewpagerindicator.TitlePageIndicator
+            android:id="@+id/updateIndicator"
+            android:padding="15dip"
+            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:background="#18FF0000"
+            android:textColor="#AA000000"
+            app:footerColor="#FFAA2222"
+            app:footerLineHeight="4dp"
+            app:footerIndicatorHeight="22dp"
+            app:footerIndicatorStyle="underline"
+            app:selectedColor="#FF000000"
+            app:selectedBold="true"
+            />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/updatePager"
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/add_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:src="@drawable/ic_action_edit_light"
+            android:onClick="addNewItem"
+            fab:fab_colorNormal="@color/primary"
+            fab:fab_colorPressed="@color/primary_dark"
+            fab:fab_colorRipple="@color/ripple"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="fill_parent"
+        android:background="@android:color/black"
+        />
+    <FrameLayout
+        android:id="@+id/update_right_frag_container"
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        />
+
+</LinearLayout>
+<!-- From: file:/E:/RestaurantExpressTeam1/app/src/main/res/layout-land/activity_update_items.xml -->

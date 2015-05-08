@@ -10,18 +10,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -70,6 +69,7 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
     File file = null;
     String selectedImageURI =  null;
 
+    boolean uploadImageFlag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,7 +158,7 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
     to load all the data created an async class.
     * */
     private ProgressDialog pDialog;
-
+    private ProgressDialog LDialog;
     // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
 
@@ -253,7 +253,9 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
                     File f = new File(android.os.Environment
                             .getExternalStorageDirectory(), "temp.jpg");
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+
                     startActivityForResult(intent, REQUEST_CAMERA);
+                    uploadImageFlag = true;
                 } else if (items[item].equals("Choose from Library")) {
                     Intent intent = new Intent(
                             Intent.ACTION_PICK,
@@ -262,7 +264,9 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
                     startActivityForResult(
                             Intent.createChooser(intent, "Select File"),
                             SELECT_FILE);
+                    uploadImageFlag = true;
                 } else if (items[item].equals("Cancel")) {
+                    uploadImageFlag = false;
                     dialog.dismiss();
                 }
             }
@@ -339,6 +343,59 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         return cursor.getString(column_index);
     }
 
+    public String uploadFile(int menuID) {
+        String responseString = null;
+
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpPost httppost = new HttpPost(Config.IMAGE_UPLOAD_URL);
+
+        try {
+            AndroidMultiPartEntity entity = new AndroidMultiPartEntity(
+                    new AndroidMultiPartEntity.ProgressListener() {
+
+                        @Override
+                        public void transferred(long num) {
+                            // publishProgress((int) ((num / (float) totalSize) * 100));
+                        }
+                    });
+
+            File sourceFile = new File(selectedImageURI);
+
+            // Adding file data to http body
+            entity.addPart("image", new FileBody(sourceFile));
+            Log.d("AddMenu ID",Integer.toString(menuID));
+            entity.addPart("menuid",new StringBody(Integer.toString(menuID)));
+            // Extra parameters if you want to pass to server
+            entity.addPart("website",
+                    new StringBody("www.sabyasachi.com"));
+            entity.addPart("email", new StringBody("sabyaasachi@gmail.com"));
+
+            //totalSize = entity.getContentLength();
+            httppost.setEntity(entity);
+
+            // Making server call
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity r_entity = response.getEntity();
+
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode == 200) {
+                // Server response
+                responseString = EntityUtils.toString(r_entity);
+            } else {
+                responseString = "Error occurred! Http Status Code: "
+                        + statusCode;
+            }
+
+        } catch (ClientProtocolException e) {
+            responseString = e.toString();
+        } catch (IOException e) {
+            responseString = e.toString();
+        }
+
+        return responseString;
+
+    }
+
     class LoadAllMenuItems extends AsyncTask<String, String, String> {
 
         Map<String,List<com.team1.RestaurantExpress.MenuItem>> menuMap = new HashMap<String, List<com.team1.RestaurantExpress.MenuItem>>();
@@ -348,11 +405,11 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateItems.this);
-            pDialog.setMessage("Loading menu items. Please wait...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
-//            pDialog.show();
+            LDialog = new ProgressDialog(UpdateItems.this);
+            LDialog.setMessage("Loading menu items. Please wait...");
+            LDialog.setIndeterminate(false);
+            LDialog.setCancelable(false);
+            LDialog.show();
         }
 
         /**
@@ -438,7 +495,7 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
-            pDialog.dismiss();
+           // pDialog.dismiss();
             // updating UI from Background Thread
             runOnUiThread(new Runnable() {
                 public void run() {
@@ -451,19 +508,10 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
                     indicator.setViewPager(itemPager);
                     indicator.setFooterIndicatorStyle(TitlePageIndicator.IndicatorStyle.Triangle);
                     itemIndicator = indicator;
-                    /**
-                     * Updating parsed JSON data into ListView
-                     * */
-                    /*ListAdapter adapter = new SimpleAdapter(
-                            ViewItems.this, productsList,
-                            R.layout.list_items, new String[]{TAG_PID,
-                            TAG_NAME},
-                            new int[]{R.id.itemid, R.id.itemname});
-                    // updating listview
-
-                    setListAdapter(adapter);*/
+                    LDialog.dismiss();
                 }
             });
+
 
         }
 
@@ -472,7 +520,8 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
     /**
      * Background Async Task to  Save product Details
      * */
-    class SaveProductDetails extends AsyncTask<String, String, String> {
+     ProgressDialog sDialog;
+     class SaveProductDetails extends AsyncTask<String, String, String> {
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -480,11 +529,11 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateItems.this);
-            pDialog.setMessage("Saving menu item ...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
+            sDialog = new ProgressDialog(UpdateItems.this);
+            sDialog.setMessage("Saving menu item ...");
+            sDialog.setIndeterminate(false);
+            sDialog.setCancelable(true);
+            sDialog.show();
         }
 
         /**
@@ -493,8 +542,6 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         protected String doInBackground(String... args) {
 
             Log.d("Update","Update background method called");
-
-
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -514,13 +561,14 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
             try {
                 int success = json.getInt(Config.TAG_SUCCESS);
 
-                if (success == 1) {
+                if (success == 1 && uploadImageFlag) {
                     Log.d("Item Updated","Success");
+                    String responseString = uploadFile(menuItem.getItem_ID());
                     // successfully updated
                     Intent i = getIntent();
                     // send result code 100 to notify about product update
                     setResult(100, i);
-                    finish();
+
                 } else {
                     // failed to update product
                     Log.d("Failed:","Item not updated");
@@ -538,10 +586,15 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product updated
-            pDialog.dismiss();
+            sDialog.dismiss();
+            finish();
+            Intent intent = new Intent(UpdateItems.this,UpdateItems.class);
+            startActivity(intent);
+
         }
     }
 
+    ProgressDialog dDialog;
     class DeleteProduct extends AsyncTask<String, String, String> {
 
         /**
@@ -550,11 +603,11 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateItems.this);
-            pDialog.setMessage("Deleting Item...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
+            dDialog = new ProgressDialog(UpdateItems.this);
+            dDialog.setMessage("Deleting Item...");
+            dDialog.setIndeterminate(false);
+            dDialog.setCancelable(true);
+            dDialog.show();
         }
 
         /**
@@ -598,7 +651,9 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
-            pDialog.dismiss();
+            dDialog.dismiss();
+            Intent intent = new Intent(UpdateItems.this,UpdateItems.class);
+            startActivity(intent);
 
         }
 
@@ -606,6 +661,7 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
 
     }
 
+    ProgressDialog cDialog;
     class LoadAllCategories extends AsyncTask<String, String, String> {
 
 
@@ -615,11 +671,11 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateItems.this);
-            pDialog.setMessage("Loading menu items. Please wait...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
-//            pDialog.show();
+            cDialog = new ProgressDialog(UpdateItems.this);
+            cDialog.setMessage("Loading all categories. Please wait...");
+            cDialog.setIndeterminate(false);
+            cDialog.setCancelable(false);
+            cDialog.show();
         }
 
         /**
@@ -674,7 +730,7 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
-            pDialog.dismiss();
+            cDialog.dismiss();
             // updating UI from Background Thread
             runOnUiThread(new Runnable() {
                 public void run() {
@@ -686,20 +742,21 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
         }
 
     }
-
+    ProgressDialog aDialog;
     class AddNewItem extends AsyncTask<String, String, String> {
 
         /**
          * Before starting background thread Show Progress Dialog
          * */
-        @Override
+        int menuID;
+         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateItems.this);
-            pDialog.setMessage("Adding Menu Item..");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
+             aDialog = new ProgressDialog(UpdateItems.this);
+             aDialog.setMessage("Adding Menu Item..");
+             aDialog.setIndeterminate(false);
+             aDialog.setCancelable(true);
+             aDialog.show();
         }
 
         /**
@@ -728,9 +785,10 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
             // check for success tag
             try {
                 int success = json.getInt(Config.TAG_SUCCESS);
+                menuID = json.getInt(Config.TAG_MENU_ID);
 
                 if (success == 1) {
-                    String responseString = uploadFile();
+                    String responseString = uploadFile(menuID);
                     // successfully created product
                     //Intent i = new Intent(getApplicationContext(), ViewItems.class);
                     //startActivity(i);
@@ -738,7 +796,8 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
                     //getFragmentManager().popBackStackImmediate();
 
                     // closing this screen
-                    //finish();
+
+                    finish();
                 } else {
                     // failed to create product
                 }
@@ -749,63 +808,16 @@ public class UpdateItems extends BaseItemFragment implements ItemFragment.OnFrag
             return null;
         }
 
-        private String uploadFile() {
-            String responseString = null;
 
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(Config.IMAGE_UPLOAD_URL);
-
-            try {
-                AndroidMultiPartEntity entity = new AndroidMultiPartEntity(
-                        new AndroidMultiPartEntity.ProgressListener() {
-
-                            @Override
-                            public void transferred(long num) {
-                               // publishProgress((int) ((num / (float) totalSize) * 100));
-                            }
-                        });
-
-                File sourceFile = new File(selectedImageURI);
-
-                // Adding file data to http body
-                entity.addPart("image", new FileBody(sourceFile));
-
-                // Extra parameters if you want to pass to server
-                entity.addPart("website",
-                        new StringBody("www.sabyasachi.com"));
-                entity.addPart("email", new StringBody("sabyaasachi@gmail.com"));
-
-                //totalSize = entity.getContentLength();
-                httppost.setEntity(entity);
-
-                // Making server call
-                HttpResponse response = httpclient.execute(httppost);
-                HttpEntity r_entity = response.getEntity();
-
-                int statusCode = response.getStatusLine().getStatusCode();
-                if (statusCode == 200) {
-                    // Server response
-                    responseString = EntityUtils.toString(r_entity);
-                } else {
-                    responseString = "Error occurred! Http Status Code: "
-                            + statusCode;
-                }
-
-            } catch (ClientProtocolException e) {
-                responseString = e.toString();
-            } catch (IOException e) {
-                responseString = e.toString();
-            }
-
-            return responseString;
-
-        }
         /**
          * After completing background task Dismiss the progress dialog
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
-            pDialog.dismiss();
+            aDialog.dismiss();
+            Toast.makeText(getBaseContext(),"Menu Item added Successfully!!",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(UpdateItems.this,UpdateItems.class);
+            startActivity(intent);
         }
 
     }

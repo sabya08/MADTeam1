@@ -1,10 +1,6 @@
 package com.team1.RestaurantExpress;
 
 import android.app.Activity;
-
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
@@ -19,10 +15,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.shamanland.fab.FloatingActionButton;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.melnykov.fab.FloatingActionButton;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+//import com.shamanland.fab.FloatingActionButton;
 
 /**
  * Created by Sabya on 3/29/2015.
@@ -63,7 +63,7 @@ public class UpdateItemDetailsFragment extends Fragment {
 
         button_edit = (Button) view.findViewById(R.id.fragment_button_edit);
         button_delete = (Button) view.findViewById(R.id.fragment_button_delete);
-        button_camera = (Button) view.findViewById(R.id.btncamera);
+        //button_camera = (Button) view.findViewById(R.id.btncamera);
         addItemButton = (FloatingActionButton) view.findViewById(R.id.add_item);
         button_edit.setText("Edit");
         button_delete.setText("Delete");
@@ -72,7 +72,8 @@ public class UpdateItemDetailsFragment extends Fragment {
 
         price = (TextView) view.findViewById(R.id.item_price);
         price.setVisibility(View.GONE);
-        imview = (ImageView) view.findViewById(R.id.item_image);
+        imview = (ImageView) view.findViewById(R.id.add_item_image);
+        imview.setClickable(false);
         tv = (TextView) view.findViewById(R.id.item_title);
         tv.setEnabled(false);
         tv_descrip = (TextView) view.findViewById(R.id.item_description);
@@ -241,7 +242,8 @@ public class UpdateItemDetailsFragment extends Fragment {
             button_delete.setText(Config.BUTTON_CANCEL);
             button_edit.setText(Config.BUTTON_UPDATE);
             tv_descrip.setEnabled(enabled);
-            button_camera.setVisibility(View.VISIBLE);
+            imview.setClickable(true);
+           // button_camera.setVisibility(View.VISIBLE);
             price.setEnabled(enabled);
         }
         else
@@ -250,7 +252,8 @@ public class UpdateItemDetailsFragment extends Fragment {
             button_delete.setText(Config.BUTTON_DELETE);
             button_edit.setText(Config.BUTTON_EDIT);
             tv_descrip.setEnabled(enabled);
-            button_camera.setVisibility(View.GONE);
+            imview.setClickable(false);
+            //button_camera.setVisibility(View.GONE);
             price.setEnabled(enabled);
         }
     }

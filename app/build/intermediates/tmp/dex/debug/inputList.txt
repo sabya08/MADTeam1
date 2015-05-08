@@ -1,11 +1,17 @@
 E:\RestaurantExpressTeam1\app\build\intermediates\classes\debug
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-dfd0b836cbd7ccdbe5fb6ad383a62dd5ddb3c7dc.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-885b50e840656edd7b0f9cf959dd21471656773b.jar
+E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-6ba9491d3adf0bc1a6b9bd06487fd5d2b446787b.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\httpmime-4.2.3-9219cba8bb21b4f68c57113dcea9f9d50cc17c02.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-8f090266b5cc3dad6a9fa3ec8ddf004697865dd0.jar
+E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\activation-7a5cbd47d49786c77f44c7390dd30e454fec68f5.jar
+E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\additionnal-faab828044ca88d88ae350a43a87448e73718ee0.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-96f131756d34214bbdbd586616a0155c6a6716df.jar
+E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\library-2.4.0-eee86f7c77c832cbe11a1c7e6e5cd0d42df8e7fe.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-869bb79343885e9193b52c4c7801bee82c0d4dcd.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\httpcore-4.2.2-ff61a0710f8c4465d64f9992867d290901cc2d24.jar
+E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-7eeb8603115a6f44d5506f72e306fbca3c4d1eb2.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-e8808367c2926c32873bdbfd5eec659961ca9d49.jar
+E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\mail-d4519deebcda05a90222e9cb35db371caf752c10.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-7e889ea4e9697bafcfdcec71b293884aa9355353.jar
 E:\RestaurantExpressTeam1\app\build\intermediates\pre-dexed\debug\classes-2c19718b1684b56130cd684546aa2873727bd024.jar

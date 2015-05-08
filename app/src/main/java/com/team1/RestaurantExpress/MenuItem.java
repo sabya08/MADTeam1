@@ -16,6 +16,7 @@ public class MenuItem {
     public String Item_Category;
     public String Item_Image_Path;
     public int Item_Qty;
+    public int TimeElapsed;
 
     public int getItem_ID() {
         return Item_ID;
@@ -79,6 +80,10 @@ public class MenuItem {
 
     public int getItem_Qty() { return this.Item_Qty; }
 
+    public int getTimeElapsed(){ return this.TimeElapsed; }
+
+    public void setTimeElapsed(int timeElapsed) {this.TimeElapsed = timeElapsed; }
+
     public JSONObject getJSONObject() {
         JSONObject obj = new JSONObject();
         try {
@@ -94,4 +99,5 @@ public class MenuItem {
         }
         return obj;
     }
+
 }

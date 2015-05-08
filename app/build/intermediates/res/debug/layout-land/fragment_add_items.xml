@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/add_item_image"
+            android:src="@drawable/noimage"
+            android:contentDescription=""
+            android:layout_width="fill_parent"
+            android:onClick="selectImage"
+            android:layout_height="300dp">
+        </ImageView>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="top"
+            android:background="#AA000000"
+            ></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/add_item_title"
+                android:text=""
+                android:hint="Enter menu item name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_gravity="top|left"
+                android:textSize="30dp"
+                android:textColor="@android:color/white"
+                />
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/add_item_description"
+        android:text=""
+        android:hint="Enter Description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        />
+    <EditText
+        android:id="@+id/add_item_price"
+        android:text=""
+        android:hint="Enter Price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:inputType="numberDecimal"
+        android:layout_gravity="center"
+        />
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:paddingBottom="200dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/fragment_button_add"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="18dp"
+            android:text="@string/add_item_button"
+            android:background="@drawable/butt_purple"
+            android:shadowRadius="10"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_weight="50"
+            android:padding="5dp"
+            android:onClick="clickedAdd"
+            />
+        <Button
+            android:id="@+id/fragment_button_cancel"
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="18dp"
+            android:text="Cancel"
+            android:background="@drawable/butt_other"
+            android:shadowRadius="10"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_weight="50"
+            android:onClick="clickedDelete"
+            />
+
+    </LinearLayout>
+ </LinearLayout>
+
+</ScrollView>
+</LinearLayout><!-- From: file:/E:/RestaurantExpressTeam1/app/src/main/res/layout-land/fragment_add_items.xml -->

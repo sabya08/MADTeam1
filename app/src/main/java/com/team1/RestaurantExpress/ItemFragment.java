@@ -1,24 +1,18 @@
 package com.team1.RestaurantExpress;
 
 import android.app.Activity;
-import android.content.res.XmlResourceParser;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.support.v4.app.Fragment;
-import android.widget.Toast;
-
-
-import com.team1.RestaurantExpress.dummy.DummyContent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -110,17 +104,17 @@ public final class ItemFragment extends Fragment implements AbsListView.OnItemCl
         String[] from = new String[] { "str" , "price"};
         int[] to = new int[] { android.R.id.text1 ,android.R.id.text2 };
         List<Map<String, String>> items =  new ArrayList<Map<String, String>>();
-        for(MenuItem menuItem:menuItemList)
-        {
-            Map<String,String> map = new HashMap<String,String>();
-            map.put("str",menuItem.getItem_Name());
-            map.put("price",menuItem.getItem_Price().toString());
-            items.add(map);
+        if(menuItemList!=null) {
+            for (MenuItem menuItem : menuItemList) {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("str", menuItem.getItem_Name());
+                map.put("price", menuItem.getItem_Price().toString());
+                items.add(map);
+            }
+
+            SimpleAdapter adapter = new SimpleAdapter(getActivity(), items, android.R.layout.simple_list_item_2, from, to);
+            view.setAdapter(adapter);
         }
-
-        SimpleAdapter adapter = new SimpleAdapter( getActivity(), items,android.R.layout.simple_list_item_2, from, to );
-        view.setAdapter( adapter );
-
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position,long id) {

@@ -1,18 +1,10 @@
 package com.team1.RestaurantExpress;
 
-
-import java.io.IOException;
-import java.io.InputStream;
-
-
 import android.app.Activity;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +17,9 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -41,7 +36,8 @@ public class MainFrag extends Fragment  {
 	private callListener mCallback;
 	private Button button_view;
     private MenuItem menuItem;
-    
+
+
 	 // Container Activity must implement this interface
 	    public interface callListener {
 	        public void onButtonClick(MenuItem menuItem);
@@ -61,12 +57,13 @@ public class MainFrag extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        Log.d("MainFrag","In onCreateView");
         View view = inflater.inflate(R.layout.mainpagefrag, container, false);
 
         button_add = (Button) view.findViewById(R.id.fragment_button_add_order);
         button_view = (Button) view.findViewById(R.id.fragment_button_view_order);
         button_add.setVisibility(View.GONE);
-        button_view.setVisibility(View.GONE);
+        //button_view.setVisibility(View.GONE);
         imview = (ImageView) view.findViewById(R.id.test_image);
         tv = (TextView) view.findViewById(R.id.title);
         tv_descrip = (TextView) view.findViewById(R.id.description);
@@ -84,6 +81,7 @@ public class MainFrag extends Fragment  {
                     ft.addToBackStack(null);
                     ft.commit();*/
             	if(menuItem!=null)
+                    menuItem.setItem_Qty(1);
             		mCallback.onButtonClick(menuItem);
                     
             }
@@ -107,8 +105,6 @@ public class MainFrag extends Fragment  {
    // public BaseItem item=null;
     public void update(XmlResourceParser xmlItem)
     {
-
-    	
     	String s = xmlItem.getAttributeValue(null,"pic");
         Log.d("ImagePath",s);
     	String t = xmlItem.getAttributeValue(null,"title");
@@ -137,7 +133,7 @@ public class MainFrag extends Fragment  {
         tv_descrip.setEnabled(false);
 
 
-// If you are using normal ImageView
+        // If you are using normal ImageView
         imageLoader.get(Config.base_url_image + menuItem.getItem_ID() + ".jpg", new ImageLoader.ImageListener() {
 
             @Override

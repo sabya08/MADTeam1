@@ -23,6 +23,9 @@ MERGED from com.android.support:appcompat-v7:21.0.3:15:5
 MERGED from com.android.support:support-v4:21.0.3:15:5
 MERGED from com.shamanland:fab:0.0.8:8:5
 MERGED from com.mcxiaoke.volley:library-aar:1.0.0:3:5
+MERGED from com.melnykov:floatingactionbutton:1.3.0:8:5
+MERGED from com.android.support:recyclerview-v7:21.0.3:15:5
+MERGED from com.android.support:support-v4:21.0.3:15:5
 	android:targetSdkVersion
 		ADDED from AndroidManifest.xml:9:9
 		INJECTED from AndroidManifest.xml:0:0
@@ -76,6 +79,9 @@ MERGED from com.android.support:appcompat-v7:21.0.3:16:5
 MERGED from com.android.support:support-v4:21.0.3:16:5
 MERGED from com.shamanland:fab:0.0.8:12:5
 MERGED from com.mcxiaoke.volley:library-aar:1.0.0:5:5
+MERGED from com.melnykov:floatingactionbutton:1.3.0:12:5
+MERGED from com.android.support:recyclerview-v7:21.0.3:17:5
+MERGED from com.android.support:support-v4:21.0.3:16:5
 	android:label
 		ADDED from AndroidManifest.xml:28:9
 	android:icon
@@ -151,3 +157,17 @@ ADDED from AndroidManifest.xml:68:9
 		ADDED from AndroidManifest.xml:71:13
 	android:name
 		ADDED from AndroidManifest.xml:69:13
+activity#com.team1.RestaurantExpress.RegistrationActivity
+ADDED from AndroidManifest.xml:76:9
+	android:label
+		ADDED from AndroidManifest.xml:78:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:79:13
+	android:name
+		ADDED from AndroidManifest.xml:77:13
+activity#android.support.v7.widget.TestActivity
+ADDED from com.android.support:recyclerview-v7:21.0.3:18:9
+	android:label
+		ADDED from com.android.support:recyclerview-v7:21.0.3:18:19
+	android:name
+		ADDED from com.android.support:recyclerview-v7:21.0.3:18:60

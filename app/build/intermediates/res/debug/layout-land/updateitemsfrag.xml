@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/add_item_image"
+            android:src="@drawable/menu_item_page"
+            android:contentDescription="@string/menu_display_image"
+            android:layout_width="fill_parent"
+            android:onClick="selectImage"
+            android:clickable="false"
+            android:layout_height="300dp">
+        </ImageView>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="top"
+            android:background="#AA000000"
+            ></View>
+        <!--<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:orientation="horizontal"
+           >-->
+        <EditText
+            android:id="@+id/item_title"
+            android:text="@string/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="30dp"
+            android:textColor="@android:color/white"
+            />
+            <!--<com.shamanland.fab.FloatingActionButton
+                android:id="@+id/add_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/add"
+                app:floatingActionButtonSize="mini"
+                app:floatingActionButtonImplicitElevation="true"
+                android:onClick="addNewItem"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />-->
+       <!-- <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/add_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_action_edit_light"
+            fab:fab_colorNormal="@color/primary"
+            fab:fab_colorPressed="@color/primary_dark"
+            fab:fab_colorRipple="@color/ripple" />-->
+    <!--</RelativeLayout>-->
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/item_description"
+        android:text="Menu Items have to be updated on a regular basis so as to attract customers. Customers like to try to out new items. This screen will allow you to update the menu items on a regular basis. You can add, delete, update the menu items. This will be helpful as it is done through mobile application. User does not have to bother about paying for website maintenance."
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        />
+    <EditText
+        android:id="@+id/item_price"
+        android:text="Displays Price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/fragment_button_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="18dp"
+            android:text="@string/add_to_my_menu_"
+            android:background="@drawable/butt_purple"
+            android:shadowRadius="10"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_weight="50"
+            android:padding="5dp"
+            android:onClick="clickedEdit"
+            />
+        <Button
+            android:id="@+id/fragment_button_delete"
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="18dp"
+            android:text="Delete"
+            android:background="@drawable/butt_other"
+            android:shadowRadius="10"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:layout_weight="50"
+            android:onClick="clickedDelete"
+            />
+
+
+
+        <!--<com.shamanland.fab.FloatingActionButton
+            android:id="@+id/add_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/item_price"
+            android:layout_marginBottom="@dimen/floating_action_button_margin_normal_minus"
+            android:layout_marginRight="@dimen/floating_action_button_margin_normal"
+            android:src="?attr/icActionEdit"
+            />-->
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout><!-- From: file:/E:/RestaurantExpressTeam1/app/src/main/res/layout-land/updateitemsfrag.xml -->

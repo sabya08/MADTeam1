@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 
 public class HomeActivity extends BaseSampleActivity {
@@ -18,6 +19,17 @@ public class HomeActivity extends BaseSampleActivity {
         //setRequestedOrientation(0);
         setContentView(R.layout.activity_home);
 
+
+        Button btn = (Button) findViewById(R.id.fragment_button_left);
+
+        btn.setEnabled(isAdmin());
+        btn.setVisibility(isAdmin() ? View.VISIBLE : View.INVISIBLE);
+
+
+    }
+
+    private boolean isAdmin() {
+        return getIntent().getBooleanExtra("is_admin", false);
     }
 
 

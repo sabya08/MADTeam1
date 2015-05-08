@@ -17,6 +17,11 @@ public class Config {
     public static String save_confirmed_order = "http://54.148.34.170/android_connect/save_confirmed_order.php";
     public static String get_table_status = "http://54.148.34.170/android_connect/get_table_status.php";
     public static String get_ordered_items_table = "http://54.148.34.170/android_connect/get_ordered_items_table.php";
+    public static String finalize_confirmed_order = "http://54.148.34.170/android_connect/finalize_confirmed_order.php";
+
+    // Login Page
+    public static String login_page = "http://54.148.34.170/android_connect/user_login.php";
+    public static String register_page = "http://54.148.34.170/android_connect/user_registration.php";
 
     // JSON Node names
 
@@ -32,6 +37,9 @@ public class Config {
     public static final String TAG_CATEGORIES = "categories";
     public static final String TAG_CATEGORY_NAME = "Category_Name";
     public static final String TAG_TABLE_ID = "Table_ID";
+    public static final String TAG_MENU_ID = "menu_id";
+    public static final String TAG_TIME ="time";
+
     //Update Items page constant
     public static final String BUTTON_EDIT = "Edit";
     public static final String BUTTON_DELETE = "Delete";

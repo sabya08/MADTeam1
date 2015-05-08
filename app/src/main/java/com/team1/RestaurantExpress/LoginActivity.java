@@ -12,9 +12,10 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build.VERSION;
 import android.os.Build;
+import android.os.Build.VERSION;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -26,6 +27,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,8 +89,24 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
         });
 
+
+
+        Button mRegButton = (Button) findViewById(R.id.reg_in_button);
+        mRegButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerPage();
+            }
+        });
+
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
     }
 
     private void populateAutoComplete() {
@@ -96,6 +117,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             // Use AccountManager (API 8+)
             new SetupEmailAutoCompleteTask().execute(null, null);
         }
+    }
+
+
+
+    public void registerPage() {
+
+        Intent intent = new Intent(LoginActivity.this,RegistrationActivity.class);
+        startActivity(intent);
     }
 
 
@@ -291,7 +320,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+    public class UserLoginTask extends AsyncTask<Void, Void, String> {
 
         private final String mEmail;
         private final String mPassword;
@@ -302,39 +331,48 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
 
         @Override
-        protected Boolean doInBackground(Void... params) {
+        protected String doInBackground(Void... paramsData) {
             // TODO: attempt authentication against a network service.
 
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("user_email",mEmail));
+                params.add(new BasicNameValuePair("user_password",mPassword));
 
+                JSONParser jParser = new JSONParser();
+
+                JSONObject json = jParser.makeHttpRequest(Config.login_page, "POST", params);
+
+                return     json.getString("success");
+
+
+                // Check your log cat for JSON response
+            } catch (Exception e) {
+                //TODO Need To Show Error Page or Default Page
+            }
             // TODO: register the new account here.
-            return true;
+            return "0";
         }
 
         @Override
-        protected void onPostExecute(final Boolean success) {
+        protected void onPostExecute(final String success) {
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {
-                //finish();
+            if("1".equals(success)) {
                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                intent.putExtra("is_admin", false);
                 startActivity(intent);
 
-            } else {
+            }else if("2".equals(success)) {
+                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+
+                intent.putExtra("is_admin", true);
+                startActivity(intent);
+                //TODO: For Admin Page
+            }else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }

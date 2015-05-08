@@ -24,7 +24,7 @@
 
     <application
         android:name="com.team1.RestaurantExpress.volley.AppController"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/logo2"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -73,6 +73,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.team1.RestaurantExpress.HomeActivity" />
         </activity>
+        <activity
+            android:name="com.team1.RestaurantExpress.RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:parentActivityName="com.team1.RestaurantExpress.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.team1.RestaurantExpress.LoginActivity" />
+        </activity>
+        <activity
+            android:name="android.support.v7.widget.TestActivity"
+            android:label="RecyclerViewTestActivity" />
     </application>
 
 </manifest>
