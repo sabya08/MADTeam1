@@ -18,6 +18,7 @@ public class Config {
     public static String get_table_status = "http://54.148.34.170/android_connect/get_table_status.php";
     public static String get_ordered_items_table = "http://54.148.34.170/android_connect/get_ordered_items_table.php";
     public static String finalize_confirmed_order = "http://54.148.34.170/android_connect/finalize_confirmed_order.php";
+    public static String update_confirmed_order = "http://54.148.34.170/android_connect/update_confirmed_order.php";
 
     // Login Page
     public static String login_page = "http://54.148.34.170/android_connect/user_login.php";

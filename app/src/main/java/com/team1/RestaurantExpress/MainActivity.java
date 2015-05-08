@@ -50,9 +50,11 @@ public class MainActivity extends BaseSampleActivity implements TestFragment.fra
 	FragmentManager fm;
 	Fragment fragment;
 	ArrayList<MenuItem> myitemlist = new ArrayList<MenuItem>();
+    ArrayList<MenuItem> dbitemList = new ArrayList<MenuItem>();
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
     private List<MenuItem> confirmOrderList =  new ArrayList<MenuItem>();
+    private ArrayList<MenuItem> changedItemList = new ArrayList<MenuItem>();
     // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
     int tableID;
@@ -124,7 +126,7 @@ public class MainActivity extends BaseSampleActivity implements TestFragment.fra
 		//add logic to increase the quantity of existing items in the  myitemList
 
 		FragmentTransaction ft = fm.beginTransaction();
-		ft.replace(R.id.right_frag_container, new DetailFrag(myitemlist,minutes));
+		ft.replace(R.id.right_frag_container, new DetailFrag(myitemlist,minutes,dbitemList));
 		ft.addToBackStack(null);
 		ft.commit();
 	}
@@ -146,12 +148,15 @@ public class MainActivity extends BaseSampleActivity implements TestFragment.fra
 	}
 
     @Override
-    public void onPlaceClick(){
+    public void onPlaceClick(ArrayList<MenuItem> changedList){
         //confirmOrderList = menuItemList;
-        if(myitemlist.size()>0)
+        if(myitemlist.size()>0 && changedList == null)
             new SaveOrder().execute();
-
-
+        else if(changedList!=null)
+        {
+            this.changedItemList = changedList;
+            new UpdateOrder().execute();
+        }
         else
         {
             Log.d("OnConfirmClick","Inside On Confirm Click");
@@ -408,6 +413,69 @@ public class MainActivity extends BaseSampleActivity implements TestFragment.fra
 
     }
 
+    class UpdateOrder extends AsyncTask<String, String, String> {
+
+        //Map<String,List<MenuItem>> menuMap = new HashMap<String, List<MenuItem>>();
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog.setMessage("Saving menu items. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        /**
+         * getting All products from url
+         * */
+        protected String doInBackground(String... args) {
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            JSONArray jsonArray = new JSONArray();
+            //JSONObject confirmItemsJson = new JSONObject();
+            for (int i=0; i < changedItemList.size(); i++)
+            {
+                jsonArray.put(changedItemList.get(i).getJSONObject());
+            }
+
+            params.add(new BasicNameValuePair("confirmedOrder",jsonArray.toString()));
+            params.add(new BasicNameValuePair("tableID",Integer.toString(tableID)));
+            // getting JSON string from URL
+            JSONObject json = jParser.makeHttpRequest(Config.update_confirmed_order, "POST", params);
+
+            // Check your log cat for JSON response
+            Log.d("All Products: ", json.toString());
+
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after getting all products
+            pDialog.dismiss();
+            // updating UI from Background Thread
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(MainActivity.this,"Order updated successfully",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this,TableActivity.class);
+                    finish();
+                    startActivity(intent);
+                    //new LoadOrderedItems().execute();
+                }
+            });
+
+        }
+
+    }
+
     class LoadOrderedItems extends AsyncTask<String, String, String> {
 
         //Map<String,List<MenuItem>> menuMap = new HashMap<String, List<MenuItem>>();
@@ -481,6 +549,8 @@ public class MainActivity extends BaseSampleActivity implements TestFragment.fra
                         // adding HashList to ArrayList
                         productsList.add(map);*/
                     }
+
+                    dbitemList = getDBItemList(menuItemList);
                     myitemlist = menuItemList;
                     Log.d("MyItemListCount",Integer.toString(myitemlist.size()));
 
@@ -498,6 +568,28 @@ public class MainActivity extends BaseSampleActivity implements TestFragment.fra
             }
 
             return null;
+        }
+
+        private ArrayList<MenuItem> getDBItemList(ArrayList<MenuItem> menuItemList)
+        {
+            ArrayList<MenuItem> dbItemList = new ArrayList<MenuItem>();
+            for(MenuItem item : menuItemList)
+            {
+                MenuItem itemnew = new MenuItem();
+                itemnew.setItem_ID(item.getItem_ID());
+                itemnew.setItem_Qty(item.getItem_Qty());
+                itemnew.setItem_Category(item.getItem_Category());
+                itemnew.setAction_Required(item.getAction_Required());
+                itemnew.setItem_Description(item.getItem_Description());
+                itemnew.setTimeElapsed(item.getTimeElapsed());
+                itemnew.setItem_Active(item.getIsItem_Active());
+                itemnew.setItem_Price(item.getItem_Price());
+                itemnew.setItem_Name(item.getItem_Name());
+                dbItemList.add(itemnew);
+
+            }
+            return dbItemList;
+
         }
         /**
          * After completing background task Dismiss the progress dialog

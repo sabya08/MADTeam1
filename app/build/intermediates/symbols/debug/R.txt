@@ -631,7 +631,7 @@ int id always 0x7f0a001c
 int id arrow_down 0x7f0a00a4
 int id arrow_up 0x7f0a00a3
 int id beginning 0x7f0a0014
-int id bill_amount 0x7f0a0085
+int id bill_amount 0x7f0a0086
 int id book_now 0x7f0a0030
 int id bottom 0x7f0a0026
 int id btn1 0x7f0a0095
@@ -639,9 +639,9 @@ int id btn2 0x7f0a0096
 int id btn3 0x7f0a0097
 int id button1 0x7f0a0081
 int id button2 0x7f0a0082
-int id button3 0x7f0a0089
-int id button4 0x7f0a0088
-int id button5 0x7f0a008a
+int id button3 0x7f0a008a
+int id button4 0x7f0a0089
+int id button5 0x7f0a008b
 int id buyButton 0x7f0a002d
 int id buy_now 0x7f0a0031
 int id buy_with_google 0x7f0a0032
@@ -666,7 +666,7 @@ int id email_sign_in_button 0x7f0a0064
 int id end 0x7f0a0015
 int id expand_activities_button 0x7f0a003b
 int id expanded_menu 0x7f0a0041
-int id final_bill 0x7f0a0086
+int id final_bill 0x7f0a0087
 int id fragment_button_add 0x7f0a0093
 int id fragment_button_add_order 0x7f0a009c
 int id fragment_button_cancel 0x7f0a0094
@@ -682,11 +682,11 @@ int id home 0x7f0a0004
 int id homeAsUp 0x7f0a000d
 int id hybrid 0x7f0a0019
 int id icon 0x7f0a003f
-int id id_line 0x7f0a0083
+int id id_line 0x7f0a0084
 int id ifRoom 0x7f0a001e
 int id image 0x7f0a003c
 int id indicator 0x7f0a0099
-int id info 0x7f0a0087
+int id info 0x7f0a0088
 int id item_description 0x7f0a00a7
 int id item_price 0x7f0a00a8
 int id item_title 0x7f0a00a6
@@ -695,7 +695,7 @@ int id lay1 0x7f0a0098
 int id layout_root 0x7f0a008c
 int id listMode 0x7f0a0009
 int id list_item 0x7f0a003e
-int id listview1 0x7f0a0084
+int id listview1 0x7f0a0085
 int id login 0x7f0a0063
 int id login_form 0x7f0a005f
 int id login_progress 0x7f0a005e
@@ -762,7 +762,7 @@ int id test_image 0x7f0a005a
 int id textp1 0x7f0a009e
 int id textp2 0x7f0a009f
 int id textp3 0x7f0a00a0
-int id time_elapsed 0x7f0a008b
+int id time_elapsed 0x7f0a0083
 int id title 0x7f0a0040
 int id top 0x7f0a0027
 int id tracks 0x7f0a00a2

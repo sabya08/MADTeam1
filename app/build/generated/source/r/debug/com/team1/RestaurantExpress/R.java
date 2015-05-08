@@ -2205,7 +2205,7 @@ containing a value of this type.
         public static final int arrow_down=0x7f0a00a4;
         public static final int arrow_up=0x7f0a00a3;
         public static final int beginning=0x7f0a0014;
-        public static final int bill_amount=0x7f0a0085;
+        public static final int bill_amount=0x7f0a0086;
         public static final int book_now=0x7f0a0030;
         public static final int bottom=0x7f0a0026;
         public static final int btn1=0x7f0a0095;
@@ -2213,9 +2213,9 @@ containing a value of this type.
         public static final int btn3=0x7f0a0097;
         public static final int button1=0x7f0a0081;
         public static final int button2=0x7f0a0082;
-        public static final int button3=0x7f0a0089;
-        public static final int button4=0x7f0a0088;
-        public static final int button5=0x7f0a008a;
+        public static final int button3=0x7f0a008a;
+        public static final int button4=0x7f0a0089;
+        public static final int button5=0x7f0a008b;
         public static final int buyButton=0x7f0a002d;
         public static final int buy_now=0x7f0a0031;
         public static final int buy_with_google=0x7f0a0032;
@@ -2240,7 +2240,7 @@ containing a value of this type.
         public static final int end=0x7f0a0015;
         public static final int expand_activities_button=0x7f0a003b;
         public static final int expanded_menu=0x7f0a0041;
-        public static final int final_bill=0x7f0a0086;
+        public static final int final_bill=0x7f0a0087;
         public static final int fragment_button_add=0x7f0a0093;
         public static final int fragment_button_add_order=0x7f0a009c;
         public static final int fragment_button_cancel=0x7f0a0094;
@@ -2256,11 +2256,11 @@ containing a value of this type.
         public static final int homeAsUp=0x7f0a000d;
         public static final int hybrid=0x7f0a0019;
         public static final int icon=0x7f0a003f;
-        public static final int id_line=0x7f0a0083;
+        public static final int id_line=0x7f0a0084;
         public static final int ifRoom=0x7f0a001e;
         public static final int image=0x7f0a003c;
         public static final int indicator=0x7f0a0099;
-        public static final int info=0x7f0a0087;
+        public static final int info=0x7f0a0088;
         public static final int item_description=0x7f0a00a7;
         public static final int item_price=0x7f0a00a8;
         public static final int item_title=0x7f0a00a6;
@@ -2269,7 +2269,7 @@ containing a value of this type.
         public static final int layout_root=0x7f0a008c;
         public static final int listMode=0x7f0a0009;
         public static final int list_item=0x7f0a003e;
-        public static final int listview1=0x7f0a0084;
+        public static final int listview1=0x7f0a0085;
         public static final int login=0x7f0a0063;
         public static final int login_form=0x7f0a005f;
         public static final int login_progress=0x7f0a005e;
@@ -2336,7 +2336,7 @@ containing a value of this type.
         public static final int textp1=0x7f0a009e;
         public static final int textp2=0x7f0a009f;
         public static final int textp3=0x7f0a00a0;
-        public static final int time_elapsed=0x7f0a008b;
+        public static final int time_elapsed=0x7f0a0083;
         public static final int title=0x7f0a0040;
         public static final int top=0x7f0a0027;
         public static final int tracks=0x7f0a00a2;

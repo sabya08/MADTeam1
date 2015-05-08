@@ -58,6 +58,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    public static boolean isAdmin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -362,14 +363,16 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if("1".equals(success)) {
+
                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                intent.putExtra("is_admin", false);
+                isAdmin = false;
+                //intent.putExtra("is_admin", false);
                 startActivity(intent);
 
             }else if("2".equals(success)) {
                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-
-                intent.putExtra("is_admin", true);
+                isAdmin = true;
+                //intent.putExtra("is_admin", true);
                 startActivity(intent);
                 //TODO: For Admin Page
             }else {

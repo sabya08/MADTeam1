@@ -434,7 +434,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/E:/RestaurantExpressTeam1/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="take_order">Take Order</string>
+    <string name="take_order">Order Management</string>
     <string name="text_hoes_here_lol">Welcome to Restaurant Express!</string>
     <string name="title_activity_example">ExampleActivity</string>
     <string name="title_activity_home">Select an Option</string>
@@ -448,7 +448,7 @@
     <string name="title_activity_table">Table Order Status</string>
     <string name="title_activity_update_items">Update Menu Items</string>
     <string name="title_text">Menu Item</string>
-    <string name="view_update_menu">View/Update Menu</string>
+    <string name="view_update_menu">Menu Management</string>
     <!-- From: file:/E:/RestaurantExpressTeam1/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>

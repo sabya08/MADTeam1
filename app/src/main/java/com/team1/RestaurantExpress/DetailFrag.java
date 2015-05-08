@@ -40,6 +40,7 @@ public class DetailFrag extends Fragment {
     public TextView timeElapsed;
 	public ListView lv;
 	ArrayList<MenuItem> myitemlist;
+    ArrayList<MenuItem> dbitemlist;
 	public int n=0;
 	public String strng="default";
 	private SimpleAdapter arrayAdapter;
@@ -66,7 +67,7 @@ public class DetailFrag extends Fragment {
 	    }
 
         public interface placeOrderListener {
-            public void onPlaceClick();
+            public void onPlaceClick(ArrayList<MenuItem> changedList);
         }
 
         public interface confirmOrderListener{
@@ -98,9 +99,10 @@ public class DetailFrag extends Fragment {
 		
 	}
 
-    DetailFrag(ArrayList<MenuItem> s, int minutes)
+    DetailFrag(ArrayList<MenuItem> s, int minutes, ArrayList<MenuItem> db)
 	{
 		myitemlist=s;
+        dbitemlist = db;
         this.minutes = minutes;
 	}
 	
@@ -144,7 +146,7 @@ public class DetailFrag extends Fragment {
 
         lv = (ListView) view.findViewById(R.id.listview1);
         timeElapsed.setText(minutes + " min elapsed");
-        if (myitemlist.size() <= 0) {
+        if (dbitemlist.size() <= 0) {
             button_place.setText("Place Order");
             button_confirm.setVisibility(View.GONE);
             //timeElapsed.setVisibility(View.GONE);
@@ -263,9 +265,15 @@ public class DetailFrag extends Fragment {
         button_place.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                onPlaceCallback.onPlaceClick();
+                ArrayList<MenuItem> changedList = null;
+                if(button_place.getText().toString().equals("Update Order"))
+                {
+                    changedList = findChangedList(myitemlist,dbitemlist);
+                }
+                onPlaceCallback.onPlaceClick(changedList);
             }
         });
+
 
         button_confirm.setOnClickListener(new OnClickListener()
         {
@@ -279,7 +287,7 @@ public class DetailFrag extends Fragment {
         button_cancel.setOnClickListener(new OnClickListener()
         {
             @Override
-            public void onClick(View v)
+            public void onClick(final View v)
             {
 
 
@@ -292,9 +300,15 @@ public class DetailFrag extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                //Stop the activity
-                                //YourClass.this.finish();
-                                onCancelOrderCallback.onCancelClick();
+                                if (dbitemlist.size() > 0)
+                                    onCancelOrderCallback.onCancelClick();
+                                else {
+                                    items.clear();
+                                    myitemlist.clear();
+                                    arrayAdapter.notifyDataSetChanged();
+                                    sum =0;
+                                    setbill(view);
+                                }
                             }
 
                         })
@@ -306,6 +320,65 @@ public class DetailFrag extends Fragment {
 
         return view;
 	}
+
+    public ArrayList<MenuItem> findChangedList(ArrayList<MenuItem> mylist, ArrayList<MenuItem> dbList)
+    {
+        ArrayList<MenuItem> changedList = new ArrayList<MenuItem>();
+        boolean itemFound  = false;
+        boolean itemQtyChanged = false;
+        for(MenuItem mitem : mylist)
+        {
+            itemFound =false;
+            itemQtyChanged =false;
+            MenuItem menuItem =  new MenuItem();
+            for(MenuItem ditem : dbList)
+            {
+                if(mitem.getItem_ID() == ditem.getItem_ID())
+                {
+                    if(mitem.getItem_Qty() != ditem.getItem_Qty())
+                        itemQtyChanged = true;
+                    itemFound = true;
+                    break;
+                }
+            }
+            if(itemFound && itemQtyChanged)
+            {
+                menuItem =mitem;
+                menuItem.setAction_Required("UPDATE");
+                changedList.add(menuItem);
+            }
+            else if(!itemFound)
+            {
+                menuItem = mitem;
+                menuItem.setAction_Required("ADD");
+                changedList.add(menuItem);
+            }
+
+        }
+        for(MenuItem ditem : dbList)
+        {
+            itemFound =false;
+            itemQtyChanged =false;
+            MenuItem menuItem =  new MenuItem();
+            for(MenuItem mitem : mylist)
+            {
+                  if(mitem.getItem_ID() == ditem.getItem_ID())
+                  {
+                      itemFound = true;
+                      break;
+                  }
+            }
+            if(!itemFound)
+            {
+                menuItem = ditem;
+                menuItem.setAction_Required("DELETE");
+                changedList.add(ditem);
+            }
+        }
+
+
+        return changedList;
+    }
 	
 	public void setbill(View view)
 	{

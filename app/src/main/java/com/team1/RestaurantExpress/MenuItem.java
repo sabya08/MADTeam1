@@ -18,6 +18,16 @@ public class MenuItem {
     public int Item_Qty;
     public int TimeElapsed;
 
+    public void setAction_Required(String action_Required) {
+        Action_Required = action_Required;
+    }
+
+    public String getAction_Required() {
+        return Action_Required;
+    }
+
+    public String Action_Required;
+
     public int getItem_ID() {
         return Item_ID;
     }
@@ -34,7 +44,7 @@ public class MenuItem {
         return Item_Price;
     }
 
-    public boolean isItem_Active() {
+    public boolean getIsItem_Active() {
         return Item_Active;
     }
 
@@ -94,6 +104,7 @@ public class MenuItem {
             obj.put("Quantity",Item_Qty);
             obj.put("ItemPrice",Item_Price);
             obj.put("ItemDescription",Item_Description);
+            obj.put("ActionRequired",Action_Required);
         } catch (JSONException e) {
             //trace("DefaultListItem.toString JSONException: "+e.getMessage());
         }

@@ -28,10 +28,12 @@ public class HomeActivity extends BaseSampleActivity {
 
     }
 
-    private boolean isAdmin() {
+    /*private boolean isAdmin() {
         return getIntent().getBooleanExtra("is_admin", false);
+    }*/
+    private boolean isAdmin() {
+        return LoginActivity.isAdmin;
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
